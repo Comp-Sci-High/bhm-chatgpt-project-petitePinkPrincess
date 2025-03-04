@@ -1,3 +1,4 @@
+/* https://chatgpt.com/share/67c72311-9328-8000-8254-3b807791e09f */
 /* General Styles */
 body {
     font-family: 'Bellefair', serif;
@@ -14,7 +15,9 @@ body {
     color: #8b5e3c;
 }
 
+/* Hero Section for Early Artists */
 .hero-section-early {
+    position: relative;
     text-align: center;
     padding: 80px 20px;
     background: url('https://library.duke.edu/rubenstein/scriptorium/sheetmusic/b/b09/b0946/b0946-4-150dpi.jpeg') no-repeat center center/cover;
@@ -22,12 +25,56 @@ body {
     box-shadow: inset 0 0 0 1000px rgba(0, 0, 0, 0.5);
 }
 
+.hero-section-early::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.4);
+    z-index: 1;
+}
+
+.hero-section-early .main-title,
+.hero-section-early .hero-text {
+    position: relative;
+    z-index: 2;
+    animation: fadeIn 2s ease-in-out;
+}
+
+/* Hero Section for Modern Artists (Enhanced) */
 .hero-section-modern {
+    position: relative;
     text-align: center;
-    padding: 80px 20px;
+    padding: 150px 20px;
     background: url('https://images.unsplash.com/photo-1511192336575-5a79af67a629?fm=jpg&q=60&w=3000&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8amF6enxlbnwwfHwwfHx8MA%3D%3D') no-repeat center center/cover;
     color: #f8f1e4;
     box-shadow: inset 0 0 0 1000px rgba(0, 0, 0, 0.5);
+}
+
+.hero-section-modern::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 1;
+}
+
+.hero-section-modern .main-title,
+.hero-section-modern .hero-text {
+    position: relative;
+    z-index: 2;
+    animation: fadeIn 2s ease-in-out;
+}
+
+/* Fade-in Animation Keyframes */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 1; transform: translateY(0); }
 }
 
 .hero-text {
@@ -74,6 +121,17 @@ body {
     border-radius: 8px;
 }
 
+/* Fade-In for Dynamic Elements (e.g., Cards) */
+.fade-in {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+.fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
 /* Button Styling */
 .btn-primary {
     background-color: #8b5e3c;
@@ -85,6 +143,21 @@ body {
 
 .btn-primary:hover {
     background-color: #a76f50;
+}
+
+/* Additional Button Style for Secondary Action (e.g., "More Info") */
+.btn-secondary {
+    background-color: #e0c9a6;
+    color: #5a3e36;
+    border: 2px solid #8b5e3c;
+    font-weight: bold;
+    padding: 10px 15px;
+    transition: background 0.3s ease, color 0.3s ease;
+    margin-left: 5px;
+}
+.btn-secondary:hover {
+    background-color: #8b5e3c;
+    color: #f8f1e4;
 }
 
 /* Footer */
